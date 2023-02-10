@@ -32,7 +32,7 @@ export async function postExtList(ext: any) {
 
 export async function delExtList(ext: any) {
   return axios
-    .delete(`/ext?name=${ext.name}`, { data: { ...ext } })
+    .delete(`/ext?name=${encodeURIComponent(ext.name)}`, { data: { ...ext } })
     .then((response) => response.data)
     .catch((error) => {
       alert("해당 오류를 확인해 주세요. \n" + error.response.data.error);
